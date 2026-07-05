@@ -34,9 +34,8 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(List.of(
-                "http://localhost:4321", // Típico puerto local si levantas un frontend con Astro
-                "http://localhost:5173", // Típico puerto local de React con Vite
-                "https://tu-portfolio.vercel.app"
+                "http://localhost:4321",
+                "https://frontend-phishing-detector.vercel.app"
         ));
 
         configuration.setAllowedMethods(List.of("GET", "POST", "OPTIONS"));
