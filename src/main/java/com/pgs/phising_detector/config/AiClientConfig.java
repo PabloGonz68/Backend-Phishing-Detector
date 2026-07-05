@@ -1,0 +1,24 @@
+package com.pgs.phising_detector.config;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestClient;
+
+@Configuration
+public class AiClientConfig {
+    @Value("${ai.api.base-url}")
+    private String baseUrl;
+
+    @Value("${ai.api.key}")
+    private String apiKey;
+
+    @Bean
+    public RestClient aiRestClient(){
+        return RestClient.builder()
+                .baseUrl(baseUrl)
+                .defaultHeader("Authorization", "Bearer " + apiKey)
+                .defaultHeader("Content-Type", "application/json")
+                .build();
+    }
+}
